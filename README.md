@@ -19,12 +19,20 @@ Search each file for these and swap in your real details:
   Add `.work-item img { width:100%; height:100%; object-fit:cover; }` to `styles.css` once you do.
 - **Hours** — footer currently says Mon–Fri 7–6, Saturdays by appointment. Adjust as needed.
 
-## 2. Connect the quote form
+## 2. Connect the quote form (no phone number shown on the site)
 
-Right now the form on the page doesn't send anywhere — submitting it just shows a message. Easiest free options:
+The site has no phone number displayed anywhere on purpose — quote requests come through the form instead, and get delivered straight to the owner without his number ever being public.
 
-- **Formspree** (formspree.io) — sign up free, add `action="https://formspree.io/f/yourFormId"` and `method="POST"` to the `<form>` tag in `index.html`, done.
-- **Netlify Forms** — if you host on Netlify (see below), add `data-netlify="true"` to the `<form>` tag and Netlify handles submissions automatically, free.
+**Setup (Formspree, free):**
+
+1. Go to formspree.io and create a free account.
+2. Create a new form and set the notification email to whatever inbox the owner checks — most naturally, an email that already sends push notifications to his phone (Gmail, Outlook, iCloud Mail all do this by default on a phone with the app installed and notifications on).
+3. Formspree gives you a form ID/endpoint like `https://formspree.io/f/abcd1234`. Open `index.html`, find the `<form ... action="https://formspree.io/f/YOUR_FORM_ID" ...>` tag near the bottom, and replace `YOUR_FORM_ID` with your real one.
+4. That's it — submissions now land in that inbox instantly, which triggers a normal phone notification, all without the phone number ever appearing on the page. The free tier covers 50 submissions/month, plenty for a small local business site.
+
+**If you'd rather it land as a text message instead of email:** most US carriers offer an email-to-SMS gateway address (e.g. `1234567890@vtext.com` for Verizon, `@txt.att.net` for AT&T, `@tmomail.net` for T-Mobile). You can add that address as a second notification recipient in Formspree's settings, so every quote request also arrives as a text. Note these carrier gateways have gotten less reliable in recent years and some carriers have scaled them back — a quick search for "[carrier] email to text gateway" will confirm your carrier's current address, and it's worth testing once you set it up. Email notifications alone are usually the more dependable route.
+
+**Alternative:** Netlify Forms — if you host on Netlify (see below), add `data-netlify="true"` to the `<form>` tag instead and Netlify handles submissions automatically, also free, with the same email-forwarding approach for phone notifications.
 
 ## 3. Host it (free options)
 

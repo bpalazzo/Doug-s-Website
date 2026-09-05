@@ -466,6 +466,7 @@ section { padding: 68px 0; }
 }
 .footer-block a:hover { color: var(--barn); }
 .footer-block p { color: var(--gravel); margin: 0; }
+.footer-note { font-size: 0.88rem; margin-top: 8px !important; }
 
 .footer-bottom {
   padding: 20px 28px;
